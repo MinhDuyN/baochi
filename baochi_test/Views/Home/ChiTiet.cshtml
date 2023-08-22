@@ -1,0 +1,73 @@
+﻿@model List<baochi_test.Models.BaiDang>
+@{
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header pt-0">
+                <h3 class="card-title mb-4" style="text-align:center">@item.Ten</h3>
+                <div class="blog-media mb-4">
+                    <img src="~/images/@item.HinhAnh" alt="" class="w-100">
+                </div>
+                @* <small class="small text-muted">
+                    <a href="#" class="text-muted">BY Admin</a>
+                    <span class="px-2">·</span>
+                    <span>January 24 2019</span>
+                    <span class="px-2">·</span>
+                    <a href="#" class="text-muted">32 Comments</a>
+                </small> *@
+            </div>
+            <div class="card-body border-top">
+                <p class="my-3">@item.NoiDung</p>
+            </div>
+
+            <div class="card-footer">
+                <h6 class="mt-5 mb-3 text-center"><a href="#" class="text-dark">Comments 4</a></h6>
+                <hr>
+                <div class="media">
+                    <img src="assets/imgs/avatar-1.jpg" class="mr-3 thumb-sm rounded-circle" alt="...">
+                    <div class="media-body">
+                        <h6 class="mt-0">Janice Wilder</h6>
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
+                        <a href="#" class="text-dark small font-weight-bold"><i class="ti-back-right"></i> Replay</a>
+                        <div class="media mt-5">
+                            <a class="mr-3" href="#">
+                                <img src="assets/imgs/avatar.jpg" class="thumb-sm rounded-circle" alt="...">
+                            </a>
+                            <div class="media-body align-items-center">
+                                <h6 class="mt-0">Joe Mitchell</h6>
+                                <p>Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus</p>
+                                <a href="#" class="text-dark small font-weight-bold"><i class="ti-back-right"></i> Replay</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6 class="mt-5 mb-3 text-center"><a href="#" class="text-dark">Write Your Comment</a></h6>
+                <hr>
+                <form>
+                    <div class="form-row">
+                        <div class="col-12 form-group">
+                            <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Enter Your Comment Here"></textarea>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <input type="text" class="form-control" value="Name">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <input type="url" class="form-control" placeholder="Website">
+                        </div>
+                        <div class="form-group col-12">
+                            <button class="btn btn-primary btn-block">Post Comment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>

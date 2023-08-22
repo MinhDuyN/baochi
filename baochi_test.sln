@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "baochi_test", "baochi_test\baochi_test.csproj", "{E0BDE685-C3DA-416D-94DE-2B42CF59FC9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0BDE685-C3DA-416D-94DE-2B42CF59FC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0BDE685-C3DA-416D-94DE-2B42CF59FC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0BDE685-C3DA-416D-94DE-2B42CF59FC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BDE685-C3DA-416D-94DE-2B42CF59FC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {513FEA56-3583-42B4-9CC4-9A4CE0D41EF1}
+	EndGlobalSection
+EndGlobal

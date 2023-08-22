@@ -1,0 +1,10 @@
+﻿@model IEnumerable<baochi_test.Models.DanhMuc>
+
+@*Danh mục VIEW INDEX*@
+@{
+
+}
+@foreach (var item in Model)
+{
+    <a class="dropdown-item" asp-controller="Home" asp-action="PhanLoai" asp-route-maloai="@item.Id">@item.Ten</a>
+}

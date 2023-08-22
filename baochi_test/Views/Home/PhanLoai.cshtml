@@ -1,0 +1,35 @@
+﻿@using PagedList.Core.Mvc;
+@model PagedList.Core.IPagedList<baochi_test.Models.BaiDang>
+@*     @model IEnumerable<BaiDang> *@
+@{
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-6">
+            <div class="card text-center mb-5">
+                <div class="card-header p-0">
+                    <div class="blog-media">
+                        <img src="~/images/@item.HinhAnh" alt="" class="w-100">
+                    </div>
+                </div>
+                <div class="card-body px-0">
+                    <h5 class="card-title mb-2">@item.Ten</h5>
+                    <p class="my-2">@item.NoiDung</p>
+                </div>
+
+                <div class="card-footer p-0 text-center">
+                    <a asp-action="ChiTiet" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly"
+       list="@Model" asp-controller="Home" asp-action="PhanLoai"
+       asp-route-maloai="@ViewBag.maloai" />
+
+
+@* <pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" 
+list="@Model" asp-controller="Home"  asp-action="PhanLoai" asp-route-id="@ViewBag.maloai" /> *@
