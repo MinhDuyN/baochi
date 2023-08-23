@@ -55,6 +55,30 @@ namespace baochi_test.Controllers
 
         }
 
+        public IActionResult TimKiem(string tukhoa) {
+
+            //Lưu biến bên View
+            ViewData["bientimkiem"] = tukhoa;
+            //Lấy tất cả dữ liệu trong BaiDangs
+            var bienluutru = from b in _context.BaiDangs select b;
+            if (!String.IsNullOrEmpty(tukhoa)) //Kiểm tra xem có tồn tại trong dtb
+            {
+                bienluutru = bienluutru.Where(b => b.Ten.Contains(tukhoa));
+            }
+            return View(bienluutru);
+
+            //Cách 2
+            //var query = _context.BaiDangs.AsQueryable();
+
+            //if (!string.IsNullOrEmpty(timkiem))
+            //{
+            //    query = query.Where(b => b.Ten.Contains(timkiem));
+            //}
+
+            //ViewData["bientimkiem"] = timkiem;
+            //return View(query.ToList());
+        }
+
         public IActionResult Privacy()
         {
             return View();
