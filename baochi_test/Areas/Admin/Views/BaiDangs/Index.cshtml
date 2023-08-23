@@ -1,0 +1,53 @@
+﻿@using PagedList.Core.Mvc;
+@model PagedList.Core.IPagedList<baochi_test.Models.BaiDang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên bài đăng</th>
+            <th>Hình ảnh</th>
+            <th>Trạng thái</th>
+            <th>Danh mục</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ten)
+                </td>
+                <td>
+                    @* <img width="150" height="150" src="~/images/@item.HinhAnh"> *@
+                    @if (!string.IsNullOrEmpty(item.HinhAnh))
+                    {
+                        <img width="150" height="150" src="~/images/@item.HinhAnh" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDanhMucNavigation.Ten)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" list="@Model" asp-area="Admin" asp-controller="BaiDangs" asp-action="Index" />
