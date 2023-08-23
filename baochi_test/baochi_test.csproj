@@ -18,4 +18,11 @@
     <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\admin\lib\echarts\extension\" />
+    <Folder Include="wwwroot\admin\lib\summernote\lang\" />
+  </ItemGroup>
+
 </Project>
