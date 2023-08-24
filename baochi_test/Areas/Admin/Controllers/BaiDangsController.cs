@@ -114,7 +114,7 @@ namespace baochi_test.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Ten,HinhAnh,NoiDung,Active,IdDanhMuc")] BaiDang baiDang)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Ten,HinhAnh,NoiDung,Active,IdDanhMuc")] BaiDang baiDang, IFormFile HinhAnh)
         {
             if (id != baiDang.Id)
             {
@@ -125,6 +125,23 @@ namespace baochi_test.Areas.Admin.Controllers
             {
                 try
                 {
+                    //Lấy tên ảnh gốc
+                    var fileName = Path.GetFileNameWithoutExtension(HinhAnh.FileName);
+                    //Lấy đuôi chấm
+                    var fileExtension = Path.GetExtension(HinhAnh.FileName);
+                    //Tạo tên
+                    var tenValue = _context.Entry(baiDang).Property("Ten").CurrentValue.ToString();
+                    var uniqueFileName = tenValue + "sanpham" + fileName + fileExtension;
+                    //Trỏ tới
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await HinhAnh.CopyToAsync(fileStream);
+                    }
+
+                    baiDang.HinhAnh = uniqueFileName;
+
                     _context.Update(baiDang);
                     await _context.SaveChangesAsync();
                 }

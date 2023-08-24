@@ -5,48 +5,70 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Edit</h1>
 
-<h4>BaiDang</h4>
+<div class="slim-pageheader">
+    <ol class="breadcrumb slim-breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="BaiDangs" asp-action="Index">Quản lý danh mục</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="BaiDangs" asp-action="Create">Thêm mới</a></li>
+    </ol>
+    <h6 class="slim-pagetitle">Bài đăng</h6>
+</div>
+
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-12">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Ten" class="control-label"></label>
-                <input asp-for="Ten" class="form-control" />
-                <span asp-validation-for="Ten" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HinhAnh" class="control-label"></label>
-                <input asp-for="HinhAnh" class="form-control" />
-                <span asp-validation-for="HinhAnh" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NoiDung" class="control-label"></label>
-                <input asp-for="NoiDung" class="form-control" />
-                <span asp-validation-for="NoiDung" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Active" class="control-label"></label>
-                <input asp-for="Active" class="form-control" />
-                <span asp-validation-for="Active" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdDanhMuc" class="control-label"></label>
-                <select asp-for="IdDanhMuc" class="form-control" asp-items="ViewBag.IdDanhMuc"></select>
-                <span asp-validation-for="IdDanhMuc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="hidden" asp-for="HinhAnh" />
+            <div class="row mg-b-25">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">Tên bài đăng</label>
+                        <input asp-for="Ten" class="form-control" />
+                        <span asp-validation-for="Ten" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">Danh mục </label>
+                        <select class="form-control select2" asp-for="IdDanhMuc" asp-items="@ViewBag.IdDanhMuc">
+                            <option value="1" selected>Chọn danh mục:</option>
+                        </select>
+                        <span asp-validation-for="IdDanhMuc" class="text-danger"></span>
+                        <span style="color:red">Nếu bỏ trống mặc định là danh mục đầu tiên</span>
+                    </div>
+
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label class="control-label">Nội dung</label>
+                        <input asp-for="NoiDung" class="form-control" />
+                        <span asp-validation-for="NoiDung" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group mg-b-10-force">
+                        <label class="control-label">Ảnh đại diện</label>
+                        <input type="file" asp-for="HinhAnh" class="form-control" />
+                        <span asp-validation-for="HinhAnh" class="text-danger"></span>
+
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Active" />Active
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-layout-footer">
+                    <button class="btn btn-primary bd-0">Xác nhận</button>
+                    <button class="btn btn-secondary bd-0" asp-area="Admin" asp-controller="BaiDangs" asp-action="Index">Trở về</button>
+                </div><!-- form-layout-footer -->
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
