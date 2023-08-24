@@ -79,6 +79,15 @@ namespace baochi_test.Controllers
             //return View(query.ToList());
         }
 
+        [Route("/TrangKhongTonTai/{tukhoa}")]
+        public IActionResult Error(int tukhoa)
+        {
+            if(tukhoa == 404)
+            {
+                return View();
+            }
+            return View();
+        }
 
         public IActionResult Privacy()
         {

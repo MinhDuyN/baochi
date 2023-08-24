@@ -26,6 +26,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseStatusCodePagesWithRedirects("/TrangKhongTonTai/{0}");
+
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
