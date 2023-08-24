@@ -79,6 +79,7 @@ namespace baochi_test.Controllers
             //return View(query.ToList());
         }
 
+
         public IActionResult Privacy()
         {
             return View();
