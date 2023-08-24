@@ -11,6 +11,7 @@ var connectionString = builder.Configuration.GetConnectionString("connect");
 builder.Services.AddDbContext<BaochiTestContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -26,7 +27,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 //app.UseEndpoints(endpoints =>

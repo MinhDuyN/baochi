@@ -1,49 +1,78 @@
 ﻿@model baochi_test.Models.BaiDang
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details Bài đăng";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>BaiDang</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ten)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ten)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HinhAnh)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HinhAnh)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NoiDung)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NoiDung)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Active)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdDanhMucNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdDanhMucNavigation.Ten)
-        </dd>
-    </dl>
+<div class="slim-pageheader">
+    <ol class="breadcrumb slim-breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="BaiDangs" asp-action="Index">Quản lý bài đăng</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="BaiDangs" asp-action="Details">Chi tiết @Model.Ten</a></li>
+    </ol>
+    <h6 class="slim-pagetitle">Bài đăng</h6>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="section-wrapper mg-t-20">
+    <form asp-area="Admin" asp-controller="BaiDangs" asp-action="Details">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-layout form-layout-7">
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    Tên bài đăng:
+                </div>
+                <div class="col-7 col-sm-8">
+                    <input class="form-control" type="text" asp-for="Ten" disabled>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    Hình ảnh:
+                </div>
+                <div class="col-7 col-sm-8">
+                    <img width="150" height="150" src="~/images/@Model.HinhAnh"/>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    Nội dung:
+                </div>
+                <div class="col-7 col-sm-8">
+                    @* @Html.Raw(Model.NoiDung) *@
+                    <input class="form-control" type="text" asp-for="NoiDung" disabled>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    Trạng thái:
+                </div>
+                <div class="col-7 col-sm-8">
+                    @if (Model.Active == true)
+                    {
+                    <span class="badge badge-primary">Public</span>
+                    }
+                    else
+                    {
+                    <span class="badge badge-danger">Non-Public</span>
+                    }
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    Thuộc danh mục:
+                </div>
+                <div class="col-7 col-sm-8">
+                    <input class="form-control" type="text" asp-for="IdDanhMucNavigation.Ten" disabled>
+                </div>
+            </div>
+        </div><!-- form-layout -->
+
+        @*mg-t-10: 10 là độ cách xa phía trên*@
+        <div class="form-layout-footer mg-t-10">
+            <button class="btn btn-secondary bd-0" asp-area="Admin" asp-controller="BaiDangs" asp-action="Index">Trở về</button>
+        </div>
+    </form>
+    
+
 </div>

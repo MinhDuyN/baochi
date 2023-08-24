@@ -1,0 +1,42 @@
+﻿@using PagedList.Core.Mvc;
+@model PagedList.Core.IPagedList<baochi_test.Models.DanhMuc>
+
+@{
+    ViewData["Title"] = "Index Danh Mục";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="slim-pageheader">
+    <ol class="breadcrumb slim-breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">Danh mục</a></li>
+    </ol>
+</div>
+<h6 class="slim-pagetitle">Trang danh mục</h6>
+<hr />
+<p>
+    <a asp-action="Create" class="btn btn-oblong btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên danh mục</th>
+            <th>Mô tả</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Ten</td>
+                <td>@item.MoTa</td>
+                <td>
+                    <a class="btn btn-oblong btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <a class="btn btn-oblong btn-secondary" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    <a class="btn btn-oblong btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" list="@Model" asp-area="Admin" asp-controller="DanhMucs" asp-action="Index" />

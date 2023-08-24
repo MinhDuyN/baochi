@@ -130,8 +130,8 @@ namespace baochi_test.Areas.Admin.Controllers
                     //Lấy đuôi chấm
                     var fileExtension = Path.GetExtension(HinhAnh.FileName);
                     //Tạo tên
-                    var tenValue = _context.Entry(baiDang).Property("Ten").CurrentValue.ToString();
-                    var uniqueFileName = tenValue + "sanpham" + fileName + fileExtension;
+                    //var tenValue = _context.Entry(baiDang).Property("Ten").CurrentValue.ToString();
+                    var uniqueFileName = "sanpham" + fileName + fileExtension;
                     //Trỏ tới
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", uniqueFileName);
 

@@ -1,0 +1,45 @@
+﻿@model baochi_test.Models.DanhMuc
+
+@{
+    ViewData["Title"] = "Edit Danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="slim-pageheader">
+    <ol class="breadcrumb slim-breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">Quản lý danh mục</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="DanhMucs" asp-action="Edit">Chỉnh sửa @Model.Ten</a></li>
+    </ol>
+    <h6 class="slim-pagetitle">Danh mục</h6>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="row mg-b-25">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">Tên danh mục</label>
+                        <input asp-for="Ten" class="form-control" />
+                        <span asp-validation-for="Ten" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">Mô tả</label>
+                        <input asp-for="MoTa" class="form-control" />
+                        <span asp-validation-for="MoTa" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-layout-footer">
+                    <button class="btn btn-primary bd-0">Xác nhận</button>
+                    <button class="btn btn-secondary bd-0" asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">Trở về</button>
+                </div><!-- form-layout-footer -->
+            </div>
+        </form>
+    </div>
+</div>

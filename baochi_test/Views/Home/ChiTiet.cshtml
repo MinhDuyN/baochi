@@ -20,7 +20,8 @@
                 </small> *@
             </div>
             <div class="card-body border-top">
-                <p class="my-3">@item.NoiDung</p>
+                @* <p class="my-3">@item.NoiDung</p> *@
+                @Html.Raw(item.NoiDung)
             </div>
 
             <div class="card-footer">

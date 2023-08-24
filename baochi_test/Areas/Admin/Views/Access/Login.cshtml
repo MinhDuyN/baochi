@@ -1,0 +1,33 @@
+﻿@model baochi_test.Models.TaiKhoan
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
+}
+<form asp-action="Login" method="post">
+    <div class="signin-wrapper">
+
+        <div class="signin-box">
+            <h2 class="slim-logo"><a href="index.html">slim<span>.</span></a></h2>
+            <h2 class="signin-title-primary">Welcome back!</h2>
+            <h3 class="signin-title-secondary">Sign in to continue.</h3>
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nhập tài khoản" asp-for="TaiKhoan1">
+            </div><!-- form-group -->
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="TaiKhoan1"></span>
+            </div>
+            <div class="form-group mg-b-50">
+                <input type="password" class="form-control" placeholder="Nhập mật khẩu" asp-for="MatKhau">
+            </div><!-- form-group -->
+            <div class="message-box pd-x-28 error">
+                <span asp-validation-for="MatKhau"></span>
+            </div>
+            <button class="btn btn-primary btn-block btn-signin" type="submit">Đăng nhập</button>
+            <p class="mg-b-0">Bạn chưa có tài khoản? <a asp-area="" asp-controller="" asp-action="">Đăng ký</a></p>
+            <p class="mg-b-0">Bạn muốn quay về trang chủ? <a asp-area="" asp-controller="Home" asp-action="Index">Trở về</a></p>
+        </div><!-- signin-box -->
+
+    </div><!-- signin-wrapper -->
+
+</form>
