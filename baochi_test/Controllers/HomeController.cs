@@ -19,7 +19,7 @@ namespace baochi_test.Controllers
         public IActionResult Index(int? page)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 2;
+            var pageSize = 4;
             var lstsanpham = _context.BaiDangs.AsNoTracking().OrderBy(x => x.Ten);
             IPagedList<BaiDang> models = new PagedList<BaiDang>(lstsanpham, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
@@ -34,7 +34,7 @@ namespace baochi_test.Controllers
 
 
             var pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var pageSize = 1;
+            var pageSize = 4;
 
             //Cách ngắn hơn
             //var baiDangs = _context.BaiDangs
