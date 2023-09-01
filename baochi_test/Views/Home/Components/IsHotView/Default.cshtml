@@ -1,0 +1,27 @@
+﻿@model IEnumerable<baochi_test.Models.BaiDang>
+
+@*Danh mục IsHot*@
+@{
+
+}
+<h6 class="sidebar-title mt-5 mb-4">Bài đăng chưa Active</h6>
+
+@foreach (var item in Model)
+{
+    @if(item.Active == false)
+    {
+        <div class="media text-left mb-4">
+            <a href="single-post.html" class="overlay-link"></a>
+            <img class="mr-3" src="~/images/@item.HinhAnh" width="100px" alt="Generic placeholder image">
+            <div class="media-body">
+                <h6 class="mt-0">@item.Ten</h6>
+                <p class="mb-2">Nội dung bài viết</p>
+                <p class="text-muted small"><i class="ti-calendar pr-1"></i>  January 02 2019</p>
+            </div>
+        </div>
+    }
+    
+}
+<div class="ad-card d-flex text-center align-items-center justify-content-center">
+    <span href="#" class="font-weight-bold">ADS</span>
+</div>
