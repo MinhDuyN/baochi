@@ -4,11 +4,11 @@
 @{
 
 }
-<h6 class="sidebar-title mt-5 mb-4">Bài đăng chưa Active</h6>
+<h6 class="sidebar-title mt-5 mb-4">Tin tức nóng</h6>
 
 @foreach (var item in Model)
 {
-    @if(item.Active == false)
+    @if(item.IsHot == true)
     {
         <div class="media text-left mb-4">
             <a href="single-post.html" class="overlay-link"></a>

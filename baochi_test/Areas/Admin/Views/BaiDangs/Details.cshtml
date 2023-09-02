@@ -60,6 +60,21 @@
             </div>
             <div class="row no-gutters">
                 <div class="col-5 col-sm-4">
+                    Trạng thái:
+                </div>
+                <div class="col-7 col-sm-8">
+                    @if (Model.IsHot == true)
+                    {
+                        <span class="badge badge-primary">IsHot</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Non-IsHot</span>
+                    }
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
                     Thuộc danh mục:
                 </div>
                 <div class="col-7 col-sm-8">

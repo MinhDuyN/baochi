@@ -23,6 +23,7 @@
             <th>Tên bài đăng</th>
             <th>Hình ảnh</th>
             <th>Trạng thái</th>
+            <th>Is Hot</th>
             <th>Danh mục</th>
             <th></th>
         </tr>
@@ -50,6 +51,17 @@
                     {
                         <p class="badge badge-danger">Non-Active</p>
                     }
+                </td>
+                <td>
+                    @if (item.IsHot == true)
+                    {
+                        <p class="badge badge-primary">IsHot</p>
+                    }
+                    else
+                    {
+                        <p class="badge badge-danger">Non-IsHot</p>
+                    }
+                    </div>
                 </td>
                 <td>
                     @item.IdDanhMucNavigation.Ten
