@@ -25,6 +25,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="HinhAnh" />
+            <input type="hidden" asp-for="IsHot" />
+            <input type="hidden" asp-for="Active" />
             <div class="row mg-b-25">
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -59,17 +61,17 @@
 
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="form-group form-check">
                         <label class="form-check-label">
                             <input class="form-check-input" asp-for="Active" />Active
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="form-group form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="IsHot" />IsHot
+                            <input class="form-check-input" asp-for="IsHot" />Tin nóng
                         </label>
                     </div>
                 </div>

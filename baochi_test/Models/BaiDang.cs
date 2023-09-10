@@ -13,9 +13,9 @@ public partial class BaiDang
 
     public string? NoiDung { get; set; }
 
-    public bool? Active { get; set; }
+    public bool Active { get; set; }
 
-    public bool? IsHot { get; set; }
+    public bool IsHot { get; set; }
 
     public int? IdDanhMuc { get; set; }
 

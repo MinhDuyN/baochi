@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using baochi_test.Models;
 using PagedList.Core;
+using baochi_test.Areas.Admin.Models;
 
 namespace baochi_test.Areas.Admin.Controllers
 {
@@ -21,6 +22,7 @@ namespace baochi_test.Areas.Admin.Controllers
         }
 
         // GET: Admin/BaiDangs
+        [Authentication]
         public async Task<IActionResult> Index(int? page)
         {
             var pageNumber = page ?? 1;
@@ -63,7 +65,7 @@ namespace baochi_test.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ten,HinhAnh,NoiDung,Active,IdDanhMuc")] BaiDang baiDang, IFormFile HinhAnh)
+        public async Task<IActionResult> Create([Bind("Id,Ten,HinhAnh,NoiDung,Active,IsHot,IdDanhMuc")] BaiDang baiDang, IFormFile HinhAnh)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +116,7 @@ namespace baochi_test.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Ten,HinhAnh,NoiDung,Active,IdDanhMuc")] BaiDang baiDang, IFormFile HinhAnh)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Ten,HinhAnh,NoiDung,Active,IsHot,IdDanhMuc")] BaiDang baiDang, IFormFile HinhAnh)
         {
             if (id != baiDang.Id)
             {

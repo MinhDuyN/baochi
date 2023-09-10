@@ -1,12 +1,16 @@
 ﻿@model IEnumerable<baochi_test.Models.BaiDang>
 
 @*Danh mục IsHot*@
-@{
 
+@{
+    // Lấy ra 2 bài ngẫu nhiên từ danh sách Model
+    var random = new Random();
+    var randomPosts = Model.OrderBy(x => random.Next()).Take(2);
 }
+
 <h6 class="sidebar-title mt-5 mb-4">Tin tức nóng</h6>
 
-@foreach (var item in Model)
+@foreach (var item in randomPosts)
 {
     @if(item.IsHot == true)
     {
